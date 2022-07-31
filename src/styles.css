@@ -121,3 +121,61 @@ span{
  
   
 }
+
+@media only screen and (max-width:985px) {
+  body {
+    background-color: #000000;
+  }
+
+
+  .board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lists {
+    width: 350px;
+  }
+
+  h1 {
+    margin-left: 17%;
+    font-size: 60px;
+  }
+
+  span {
+    margin-left: 17%;
+    font-size: 20px;
+  }
+
+
+}
+
+@media only screen and (max-width:450px) {
+  body {
+    background-color: #000000;
+  }
+
+
+  .board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lists {
+    width: 250px;
+  }
+
+  h1 {
+    margin-left: 21%;
+    font-size: 40px;
+  }
+
+  span {
+    margin-left: 21%;
+    font-size: 10px;
+  }
+
+
+}
