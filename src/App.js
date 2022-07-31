@@ -79,12 +79,7 @@ function App() {
             },
             [uuid()]: {
                 name : "In Progress",
-                items: [{
-                    "id": "12",
-                    "title": "Bookmarking",
-                    "content": "Interface for when creating a new link note.",
-                    "userId": 12
-                }]
+                items: []
             },
             [uuid()]: {
                 name : "Designed",
