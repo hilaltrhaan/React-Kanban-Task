@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {DragDropContext, Draggable, Droppable,} from "react-beautiful-dnd";
+import './styles.css';
 import uuid from "uuid/v4";
 import axios from "axios";
 
@@ -42,11 +43,12 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 function App() {
+    
     const [columns, setColumns] = useState([]);
     const [itemsFromBackend, setitemsFromBackend] = useState([]);
 console.log(uuid());
     useEffect(() => {
-        axios.get('https://json-heroku-serverr.herokuapp.com/todos').then(resp => {
+        axios.get(`${process.env.REACT_APP_API_URL}/todos`).then(resp => {
             setitemsFromBackend(resp.data);
         });
     }, [])
@@ -55,7 +57,7 @@ console.log(uuid());
     useEffect(() => {
         setColumns({
             [uuid()]: {
-                name : "Requested",
+                name: "Backlog",
                 items: itemsFromBackend
             },
             [uuid()]: {
@@ -64,48 +66,56 @@ console.log(uuid());
             },
             [uuid()]: {
                 name : "In Progress",
-                items: []
+                items: [{
+                    "id": "12",
+                    "title": "Bookmarking",
+                    "content": "Interface for when creating a new link note.",
+                    "userId": 12
+                }]
             },
             [uuid()]: {
-                name : "Done",
-                items: []
+                name : "Designed",
+                items: [{
+                    "id": "13",
+                    "title": "Mobile home screen",
+                    "content": "Folders, tags, and notes lists are sorted by recent. ",
+                    "userId": 13
+                }]
             }
         })
     }, [itemsFromBackend])
 
 
     return (
-        <div style={{display: "flex", justifyContent: "center", height: "100%"}}>
+        <div className="header">
+          <h1>Roadmap</h1>
+            <span>By Isaac N.C. Visit website</span>
+    
+        <div className="board">
+            
+          
             <DragDropContext
                 onDragEnd={result => onDragEnd(result, columns, setColumns)}
             >
                 {Object.entries(columns).map(([columnId, column], index) => {
                     return (
-                        <div
-                            style={{
-                                display      : "flex",
-                                flexDirection: "column",
-                                alignItems   : "center"
-                            }}
-                            key={columnId}
-                        >
-                            <h2>{column.name}</h2>
-                            <div style={{margin: 8}}>
+                        
+                        <div className="container"  key={columnId}>
+                           
+                           
+                           
+                            <div style={{ margin: 20 }}>
                                 <Droppable droppableId={columnId} key={columnId}>
                                     {(provided, snapshot) => {
                                         return (
-                                            <div
+                                            
+                                            <div className="lists"
+                                            
                                                 {...provided.droppableProps}
                                                 ref={provided.innerRef}
-                                                style={{
-                                                    background: snapshot.isDraggingOver
-                                                        ? "lightblue"
-                                                        : "lightgrey",
-                                                    padding   : 4,
-                                                    width     : 250,
-                                                    minHeight : 500
-                                                }}
+                                                
                                             >
+                                                <h2>{column.name}</h2>
                                                 {column.items.map((item, index) => {
                                                     return (
                                                         <Draggable
@@ -115,23 +125,14 @@ console.log(uuid());
                                                         >
                                                             {(provided, snapshot) => {
                                                                 return (
-                                                                    <div
+                                                                    <div className="cards"
                                                                         ref={provided.innerRef}
                                                                         {...provided.draggableProps}
                                                                         {...provided.dragHandleProps}
-                                                                        style={{
-                                                                            userSelect     : "none",
-                                                                            padding        : 16,
-                                                                            margin         : "0 0 8px 0",
-                                                                            minHeight      : "50px",
-                                                                            backgroundColor: snapshot.isDragging
-                                                                                ? "#263B4A"
-                                                                                : "#456C86",
-                                                                            color          : "white",
-                                                                            ...provided.draggableProps.style
-                                                                        }}
                                                                     >
-                                                                        {item.title}
+                                                                        <p className="cardTitle"> {item.title}</p>
+                                                                        <p className="cardSubtitle">{item.content}</p> 
+                                                                      
                                                                     </div>
                                                                 );
                                                             }}
@@ -148,6 +149,7 @@ console.log(uuid());
                     );
                 })}
             </DragDropContext>
+        </div>
         </div>
     );
 }
