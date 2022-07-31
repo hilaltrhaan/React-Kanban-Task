@@ -3,6 +3,8 @@ import {DragDropContext, Draggable, Droppable,} from "react-beautiful-dnd";
 import './styles.css';
 import uuid from "uuid/v4";
 import axios from "axios";
+import { VscChromeClose } from "react-icons/vsc";
+
 
 
 const onDragEnd = (result, columns, setColumns) => {
@@ -43,17 +45,28 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 function App() {
-    
     const [columns, setColumns] = useState([]);
     const [itemsFromBackend, setitemsFromBackend] = useState([]);
-console.log(uuid());
+
     useEffect(() => {
+        getAllUser();
+    }, [])
+
+    const getAllUser = () => {
         axios.get(`${process.env.REACT_APP_API_URL}/todos`).then(resp => {
             setitemsFromBackend(resp.data);
         });
-    }, [])
 
+    }
 
+    const deleteTodo = (id) => {
+        axios.delete(`${process.env.REACT_APP_API_URL}/todos/${id}`).then((response) => {
+            console.log("To do silindi")
+            getAllUser();
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
     useEffect(() => {
         setColumns({
             [uuid()]: {
@@ -75,12 +88,7 @@ console.log(uuid());
             },
             [uuid()]: {
                 name : "Designed",
-                items: [{
-                    "id": "13",
-                    "title": "Mobile home screen",
-                    "content": "Folders, tags, and notes lists are sorted by recent. ",
-                    "userId": 13
-                }]
+                items: []
             }
         })
     }, [itemsFromBackend])
@@ -129,11 +137,20 @@ console.log(uuid());
                                                                         ref={provided.innerRef}
                                                                         {...provided.draggableProps}
                                                                         {...provided.dragHandleProps}
-                                                                    >
-                                                                        <p className="cardTitle"> {item.title}</p>
-                                                                        <p className="cardSubtitle">{item.content}</p> 
+                                                                    >  
+                                                                        <VscChromeClose style={{marginLeft:180}}
+                                                                            onClick={() => {
+                                                                                deleteTodo(item.id)
+                                                                            }}
+                                                                        
+                                                                        />
                                                                       
+                                                                        <p className="cardTitle"> {item.title}</p>
+                                                                        <p className="cardSubtitle">{item.content}</p>
+                                                                    
                                                                     </div>
+                                                                      
+                                                                      
                                                                 );
                                                             }}
                                                         </Draggable>
