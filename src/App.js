@@ -138,12 +138,14 @@ function App() {
                                                                         {...provided.draggableProps}
                                                                         {...provided.dragHandleProps}
                                                                     >  
-                                                                        <VscChromeClose style={{marginLeft:180}}
+                                                                    <div>
+                                                                        <VscChromeClose style={{marginLeft:160}}
                                                                             onClick={() => {
                                                                                 deleteTodo(item.id)
                                                                             }}
-                                                                        
+                                                                      
                                                                         />
+                                                                        </div>
                                                                       
                                                                         <p className="cardTitle"> {item.title}</p>
                                                                         <p className="cardSubtitle">{item.content}</p>
