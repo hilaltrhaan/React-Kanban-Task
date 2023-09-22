@@ -95,5 +95,6 @@ export class YourComponent{
 
 
 ```
-[Daha fazla örnek için lütfen **Demo** sayfasını ziyaret edin.](link)
+Daha fazla örnek için lütfen **[Demo](link)** sayfasını ziyaret edin.
+
 
