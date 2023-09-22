@@ -21,9 +21,9 @@ Projeyi klonlayın
   git clone https://github.com/hilaltrhaan/React-Kanban-Task.git
 ```
 Gerekli paketleri yükleyin
-```bash
+`bash
   npm install
-```
+`
 Sunucuyu çalıştırın
 
 ```bash
