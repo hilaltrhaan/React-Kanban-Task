@@ -1,5 +1,4 @@
-
-```
+“`
 // Öncelikle, gerekli modülü içe aktarın
 import { RmDatagridModule } from 'rm-datagrid';
 
@@ -12,4 +11,4 @@ import { RmDatagridModule } from 'rm-datagrid';
   ...
 })
 export class YourModule { }
-```
+“`
