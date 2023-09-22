@@ -22,7 +22,18 @@ Projeyi klonlayın
 ```
 Gerekli paketleri yükleyin
 `bash
-  npm install
+// Öncelikle, gerekli modülü içe aktarın
+import { RmDatagridModule } from 'rm-datagrid';
+
+@NgModule({
+  declarations: [ ... ],
+  imports: [
+    RmDatagridModule,  // RM-Datagrid modülünü projeye dahil edin
+    ...
+  ],
+  ...
+})
+export class YourModule { }
 `
 Sunucuyu çalıştırın
 
