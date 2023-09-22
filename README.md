@@ -1,3 +1,10 @@
+## Examples 
+---
+app.component.html
+```html
+<rm-data-grid *ngIf="dataBuilder” [options]="dataBuilder"></rm-data-grid>
+```
+app.component.ts
 ```javascript
 import { Component} from '@angular/core';
 import { RmField, RmGridBuilder} from 'rm-datagrid';
@@ -9,7 +16,7 @@ import { RmField, RmGridBuilder} from 'rm-datagrid';
 })
 export class YourComponent{
   dataBuilder: RmGridBuilder;
-  //Columns
+  //Sütunlar
    let fields: RmField[] = [
       {
         allowEditing: true,
@@ -44,7 +51,8 @@ export class YourComponent{
     ];
 
 
-//Rm-Datagrid properties
+   
+//Rm-Datagrid özellikleri
  this.dataBuilder = {
       id: 'id',
       dataSource: {
@@ -87,3 +95,4 @@ export class YourComponent{
 
 
 ```
+
