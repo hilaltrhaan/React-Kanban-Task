@@ -1,4 +1,4 @@
-````javascript
+```javascript
 // Öncelikle, gerekli modülü içe aktarın
 import { RmDatagridModule } from 'rm-datagrid';
 
