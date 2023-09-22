@@ -9,7 +9,7 @@ import { RmField, RmGridBuilder} from 'rm-datagrid';
 })
 export class YourComponent{
   dataBuilder: RmGridBuilder;
-  //Sütunlar
+  //Columns
    let fields: RmField[] = [
       {
         allowEditing: true,
@@ -44,8 +44,7 @@ export class YourComponent{
     ];
 
 
-   
-//Rm-Datagrid özellikleri
+//Rm-Datagrid properties
  this.dataBuilder = {
       id: 'id',
       dataSource: {
