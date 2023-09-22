@@ -96,3 +96,5 @@ export class YourComponent{
 
 ```
 
+[For more examples, please visit the Demo page.](link)
+
