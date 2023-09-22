@@ -1,16 +1,5 @@
-```javascript
-// Öncelikle, gerekli modülü içe aktarın
-import { RmDatagridModule } from 'rm-datagrid';
-
-@NgModule({
-  declarations: [ ... ],
-  imports: [
-    RmDatagridModule,  // RM-Datagrid modülünü projeye dahil edin
-    ...
-  ],
-  ...
-})
-export class YourModule { }
+```html
+<rm-data-grid *ngIf="dataBuilder” [options]="dataBuilder"></rm-data-grid>
 ```
 ---
 ---
