@@ -1,6 +1,5 @@
 # RmDatagrid
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
 ## Installation
 1.Install dependency:
 
@@ -10,13 +9,13 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 2.Include RmDatagridModule to your module:
 
 ```javascript
-// Öncelikle, gerekli modülü içe aktarın
+// First, import the required module
 import { RmDatagridModule } from 'rm-datagrid';
 
 @NgModule({
   declarations: [ ... ],
   imports: [
-    RmDatagridModule,  // RM-Datagrid modülünü projeye dahil edin
+    RmDatagridModule, // Include the RM-Datagrid module in the project
     ...
   ],
   ...
@@ -26,7 +25,7 @@ export class YourModule { }
 
 
 ## Examples 
----
+
 app.component.html
 ```html
 <rm-data-grid *ngIf="dataBuilder” [options]="dataBuilder"></rm-data-grid>
@@ -122,15 +121,3 @@ export class YourComponent{
 ```
 ## More
 For more examples, please visit **[Demo](link)**.
-
-
-
-
-
-
-
-
-
-
-
-
