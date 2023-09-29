@@ -1,5 +1,5 @@
 # RmDatagrid
-[![npm version]](https://www.npmjs.com/package/rm-datagrid)
+[![npm version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&r=r&ts=1683906897&type=6e&v=0.0.43&x2=0)](https://www.npmjs.com/package/rm-datagrid)
 ## Installation
 1.Install dependency:
 
