@@ -1,5 +1,5 @@
 # RmDatagrid
-[![npm version](https://badge.fury.io/js/%40rm-datagrid%2F.svg)](https://www.npmjs.com/package/rm-datagrid)
+[![npm version]](https://www.npmjs.com/package/rm-datagrid)
 ## Installation
 1.Install dependency:
 
